@@ -14,7 +14,7 @@ export default function CharacterDetails() {
       .get(`https://ih-crud-api.herokuapp.com/characters/${id}`)
       .then((response) => setCharacter(response.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   console.log(character);
 
