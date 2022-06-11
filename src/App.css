@@ -54,3 +54,7 @@ input:last-child {
 .title {
   text-align: center;
 }
+
+.delete-button {
+  cursor: pointer
+}

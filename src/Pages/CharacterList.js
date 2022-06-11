@@ -17,12 +17,15 @@ export default function CharacterList() {
       .catch((err) => console.log(err));
   }, [refresh]);
 
-  function deleteChar(id) {
-    axios
-      .delete(`https://ih-crud-api.herokuapp.com/characters/${id}`)
-      .then(() => setRefresh(!refresh))
-      .catch((e) => console.log(e));
+  const deleteChar = (id) => {
+    axios.delete(`https://ih-crud-api.herokuapp.com/characters/${id}`)
+      .then(response => {
+        console.log(response.data)
+        setRefresh(!refresh)
+      })
+      .catch(err => console.log(err))
   }
+
   if (!characters) {
     return <Loading />;
   }
@@ -49,7 +52,7 @@ export default function CharacterList() {
             <Link to={`/edit-character/${char.id}`}>
               <FaUserEdit />
             </Link>
-            <FaRegTrashAlt onClick={() => deleteChar(char.id)} />
+            <FaRegTrashAlt className="delete-button" onClick={() => deleteChar(char.id) } />
           </div>
         );
       })}
