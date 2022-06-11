@@ -18,13 +18,14 @@ export default function CharacterList() {
   }, [refresh]);
 
   const deleteChar = (id) => {
-    axios.delete(`https://ih-crud-api.herokuapp.com/characters/${id}`)
-      .then(response => {
-        console.log(response.data)
-        setRefresh(!refresh)
+    axios
+      .delete(`https://ih-crud-api.herokuapp.com/characters/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        setRefresh(!refresh);
       })
-      .catch(err => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
 
   if (!characters) {
     return <Loading />;
@@ -33,7 +34,7 @@ export default function CharacterList() {
     <div className="characters">
       <div className="char-header">
         <div></div>
-        <h1>Character List</h1>
+        <h1>Character List 123</h1>
         <Link to={"/new-character"}>
           <p>New Character</p>
         </Link>
@@ -52,7 +53,10 @@ export default function CharacterList() {
             <Link to={`/edit-character/${char.id}`}>
               <FaUserEdit />
             </Link>
-            <FaRegTrashAlt className="delete-button" onClick={() => deleteChar(char.id) } />
+            <FaRegTrashAlt
+              className="delete-button"
+              onClick={() => deleteChar(char.id)}
+            />
           </div>
         );
       })}
