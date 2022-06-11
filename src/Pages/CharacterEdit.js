@@ -49,12 +49,13 @@ export default function CharacterEdit() {
           onChange={(e) => setInfo({...info, weapon: e.target.value})}
         />
         <label htmlFor="debt">Debt</label>
-        <input 
-          type="checkbox" 
-          value={info.debt} 
+        <input
+          type="checkbox"
+          value={info.debt}
           checked={info.debt}
-          onChange={() => setInfo({...info, debt: !info.debt})} />
-        <button type="submit">Atualizar</button>
+          onChange={() => setInfo({ ...info, debt: !info.debt })}
+        />
+        <button type="submit">Confirmar</button>
       </form>
     </div>
   );
