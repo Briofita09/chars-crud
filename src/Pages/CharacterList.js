@@ -35,7 +35,7 @@ export default function CharacterList() {
         <div></div>
         <h1>Character List</h1>
         <Link to={"/new-character"}>
-          <p>New Character</p>
+          <p>New character</p>
         </Link>
       </div>
       {characters.map((char) => {
